@@ -1,0 +1,11 @@
+{
+  "name": "the_dyrt_code_challenge",
+  "version": "1.0.0",
+  "description": "Simple master/detail view w/ form to add new items.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brandon Little",
+  "license": "ISC"
+}
