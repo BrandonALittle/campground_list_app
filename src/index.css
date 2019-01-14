@@ -1,0 +1,97 @@
+/* ELEMENT STYLES -------------------- */
+body {
+    background: #ffffff; 
+    font-family: arial;
+    text-transform: uppercase;
+  }
+  
+header {
+	height: 150px;
+	color: rgb(19, 16, 4);
+	padding: 5px 10px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	background: rgb(167, 145, 51);
+	background-size: cover;
+	box-shadow: 1px 1px 1px 1px #000000;
+}
+
+header h1 {
+	flex-grow: 1;
+	font-size: 1.5em;
+	letter-spacing: 2px;
+	font-weight: normal;
+}
+
+#content {
+	display: grid;
+	grid-template-columns: minmax(480px, 1fr) 2fr;
+	grid-column-gap: 15px;
+	border: 1px dashed black;
+	margin-top: 10px;
+	padding: 5px;
+	height: 100%;
+	box-shadow: 1px 1px 1px 1px #000000;
+	box-shadow: -1px -1px 1px -1px rgb(31, 28, 28);
+}
+
+#sidebar {
+	border: 1px solid red;
+	background: #9b9797;
+	padding: 3px;
+	box-shadow: 1px 1px 1px 1px #000000,
+		-1px -1px 1px -1px rgb(31, 28, 28);
+}
+
+.campground-list-item {
+	border: 1px dashed green;
+	padding: 5px;
+	background: white;
+	box-shadow: 1px 1px 1px -1px rgb(31, 28, 28),
+		-1px -1px 1px -1px rgb(31, 28, 28);
+}
+
+#campground-details {
+	border: 1px solid blue;
+	padding: 3px;
+	margin: 3px;
+	box-shadow: 1px 1px 1px 1px #000000,
+		-1px -1px 1px -1px rgb(31, 28, 28);
+}
+
+
+.remove-campground {
+	font-size: 1.15em;
+	outline: none;
+	background-color: #a01010;
+	border: none;
+	color: #a83d12;
+	cursor: pointer;
+	margin: 0 10px 0 0;
+	padding: 0;
+	background: none;
+}
+
+  /* FORMS */
+form {
+	display: flex;
+	background-color: rgb(12, 7, 31);
+}
+  
+input[type=text] {
+	flex-grow: 1;
+	border-width: 0 0 1px 0;
+	margin: 15px 10px 15px 15px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgb(209, 205, 223);
+	border-style: none;
+	text-shadow: none;
+	text-transform: uppercase;
+	color: rgb(192, 136, 15);
+	letter-spacing: 2px;
+	outline: none;
+}
+
+    

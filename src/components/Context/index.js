@@ -21,12 +21,21 @@ export class Provider extends Component {
         {
           name: "Balneario de Villa Concha",
           id: 4
+        },
+        {
+          name: "Parque de Los Angeles",
+          id: 5
+        },
+        {
+          name: "El Heronsito de los Heronsitos",
+          id: 6
         }
-      ]
+      ],
+      currentCampgroundIndex: null,
     };
 
     handleAddCampground = (name) => {
-      this.setState(prevState => {
+      this.setState( prevState => {
         return {
           campgrounds: [
             ...prevState.campgrounds,
@@ -40,7 +49,7 @@ export class Provider extends Component {
     }
 
     handleRemoveCampground = (id) => {
-      this.setState(prevState => {
+      this.setState( prevState => {
         return {
           campgrounds: prevState.campgrounds.filter(cg => cg.id !== id)
         }
@@ -51,8 +60,9 @@ export class Provider extends Component {
       return (
         <CampgroundContext.Provider value={{
           campgrounds: this.state.campgrounds,
+          currentCampgroundIndex: this.state.currentCampgroundIndex,
           actions: {
-            addCampground: this.addCampground,
+            addCampground: this.handleAddCampground,
             removeCampground: this.handleRemoveCampground,
           }
         }}>

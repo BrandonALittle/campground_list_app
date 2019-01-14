@@ -1,20 +1,27 @@
 import React from 'react';
 import {
-	BrowserRouter,
+	BrowserRouter as Router,
+	Switch,
 	Route,
 } from 'react-router-dom';
+
+import Modal from './Modal';
 
 import CampgroundList from './CampgroundList';
 import CampgroundDetails from './CampgroundDetails';
 
 const App = () => {
 	return (
-		<BrowserRouter>
+		<Router>
 			<div id="content">
-				<CampgroundList />
-				<CampgroundDetails />
-				<Route path="/add" component={AddCampground} />
-			</div>	
-		</BrowserRouter>
+				<Switch>
+					<CampgroundList />
+					<CampgroundDetails />
+				</Switch>
+				<Modal />
+			</div>
+		</Router>
 	);
 }
+
+export default App;
