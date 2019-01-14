@@ -1,11 +1,11 @@
 import React, { PureComponent, Component } from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Consumer } from './Context';
 
 class CampgroundListItem extends Component {
-  // static propTypes = {
-  //   index: PropTypes.number.isRequired
-  // };
+  static propTypes = {
+    index: PropTypes.number.isRequired
+  };
 
   render() {
     const { index } = this.props;
