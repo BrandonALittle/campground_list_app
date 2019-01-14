@@ -1,6 +1,7 @@
 import React from 'react';
 import { Consumer } from './Context';
 import CampgroundListItem from './CampgroundListItem';
+import { Link } from 'react-router-dom';
 
 const CampgroundList = () => {
   return (
@@ -17,7 +18,11 @@ const CampgroundList = () => {
           </div>
         )} 
       </Consumer>
-      <div id="addCampground"></div>
+      <div id="addCampground">
+        <Link to={{
+          pathname: "/add",
+          state: { modal: true }}}>ADD CAMPGROUND</Link>
+      </div>
     </section>
   );
 }

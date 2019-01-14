@@ -1,7 +1,7 @@
 import React from 'react';
 import { Consumer } from './Context';
 
-const Modal = () => {
+const Modal = ({ history }) => {
 
 	let back = e => {
 		e.stopPropagation();

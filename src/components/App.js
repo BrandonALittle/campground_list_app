@@ -1,27 +1,48 @@
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Modal from './Modal';
 
 import CampgroundList from './CampgroundList';
 import CampgroundDetails from './CampgroundDetails';
 
-const App = () => {
-	return (
-		<Router>
-			<div id="content">
-				<Switch>
-					<CampgroundList />
-					<CampgroundDetails />
-				</Switch>
-				<Modal />
-			</div>
-		</Router>
-	);
+class App extends React.Component {
+	previousLocation = this.props.location;
+
+	componentWillUpdate(nextProps) {
+		let { location } = this.props;
+
+		if (
+			nextProps.history.action !== "POP" &&
+			(!location.state || !location.state.modal)
+		) {
+			this.previousLocation = this.props.location;
+		}
+	}
+
+	render() {
+		let { location } = this.props;
+
+		let isModal = !!(
+			location.state &&
+			location.state.modal &&
+			this.previousLocation !== location
+		);
+
+		return (
+				<div id="content">
+					<Switch location={isModal ? this.previousLocation : location}>
+						<Route exact path="/" render={() => (
+							<React.Fragment>
+								<CampgroundList />
+								<CampgroundDetails />
+							</React.Fragment>
+						)} />
+					</Switch>
+					{isModal ? <Route path="/add" component={Modal} /> : null}
+				</div>
+		);
+	}
 }
 
 export default App;
