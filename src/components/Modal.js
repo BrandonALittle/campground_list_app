@@ -35,13 +35,19 @@ const Modal = ({ history }) => {
 					{ ({ actions }) => (
 						<div>
 							<h1>Add a Campground</h1>
-							<input type="text" />
-							<button type="button" onClick={back}>
-								Close
-							</button>
-							<button type="button" onClick={() => actions.addCampground('Banana')}>
-								Add Campground
-							</button>
+							<form>
+								<input type="text" />
+								<button type="button" onClick={back}>
+									Close
+								</button>
+								<button type="submit" onClick={(e) => {
+									e.preventDefault();
+									actions.addCampground('Banana');
+									back(e)
+								}}>
+									Add Campground
+								</button>
+							</form>
 						</div>
 					)}
 				</Consumer>

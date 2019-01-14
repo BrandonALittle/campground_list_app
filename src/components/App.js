@@ -1,10 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Modal from './Modal';
-
 import CampgroundList from './CampgroundList';
 import CampgroundDetails from './CampgroundDetails';
+import Modal from './Modal';
 
 class App extends React.Component {
 	previousLocation = this.props.location;

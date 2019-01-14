@@ -4,7 +4,7 @@ const CampgroundContext = React.createContext();
 
 export class Provider extends Component {
 
-    state = {
+    state = JSON.parse(localStorage.getItem('campgroundState')) || {
       campgrounds: [
         {
           name: "Matarredonda",
@@ -34,6 +34,10 @@ export class Provider extends Component {
       currentCampgroundIndex: null,
     };
 
+    componentDidUpdate() {
+      localStorage.setItem('campgroundState', JSON.stringify(this.state));
+    }
+
     handleAddCampground = (name) => {
       this.setState( prevState => {
         return {
@@ -45,7 +49,7 @@ export class Provider extends Component {
             }
           ]
         }
-      })
+      });
     }
 
     handleRemoveCampground = (id) => {
@@ -53,7 +57,7 @@ export class Provider extends Component {
         return {
           campgrounds: prevState.campgrounds.filter(cg => cg.id !== id)
         }
-      })
+      });
     }
 
     render = () => {
@@ -64,6 +68,7 @@ export class Provider extends Component {
           actions: {
             addCampground: this.handleAddCampground,
             removeCampground: this.handleRemoveCampground,
+            setLocalStorage: this.setLocalStorage,
           }
         }}>
           { this.props.children }
