@@ -60,6 +60,12 @@ export class Provider extends Component {
       });
     }
 
+    handleCurrentCampground = (index) => {
+      this.setState({
+          currentCampgroundIndex: index
+        });
+    }
+
     render = () => {
       return (
         <CampgroundContext.Provider value={{
@@ -68,7 +74,7 @@ export class Provider extends Component {
           actions: {
             addCampground: this.handleAddCampground,
             removeCampground: this.handleRemoveCampground,
-            setLocalStorage: this.setLocalStorage,
+            handleCurrentCampground: this.handleCurrentCampground,
           }
         }}>
           { this.props.children }

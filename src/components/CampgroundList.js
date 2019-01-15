@@ -6,6 +6,7 @@ import CampgroundListItem from './CampgroundListItem';
 const CampgroundList = () => {
   return (
     <section id="sidebar">
+      <h3 className="campground-list-header">Campgrounds</h3>
       <Consumer>
         { ({ campgrounds }) => (
           <div>

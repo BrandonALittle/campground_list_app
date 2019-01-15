@@ -2,7 +2,8 @@
 body {
     background: #ffffff; 
     font-family: arial;
-    text-transform: uppercase;
+		text-transform: uppercase;
+		height: 100vh;
   }
   
 header {
@@ -12,9 +13,12 @@ header {
 	text-align: center;
 	display: flex;
 	align-items: center;
-	background: rgb(167, 145, 51);
+	background-image: url('./img/IMG_20181209_171337.jpg');
+	/* background: rgb(167, 145, 51); */
 	background-size: cover;
 	box-shadow: 1px 1px 1px 1px #000000;
+	text-shadow: 1px 1px white;
+	font-size: 2em;
 }
 
 header h1 {
@@ -24,39 +28,69 @@ header h1 {
 	font-weight: normal;
 }
 
-#content {
+#main-content {
 	display: grid;
-	grid-template-columns: minmax(480px, 1fr) 2fr;
+	min-height: 600px;
+	max-height: 800px;
+	margin: auto;
+	grid-template-columns: minmax(480px, 1fr) 3fr;
 	grid-column-gap: 15px;
-	border: 1px dashed black;
+	/* border: 1px dashed black; */
 	margin-top: 10px;
 	padding: 5px;
-	height: 100%;
-	box-shadow: 1px 1px 1px 1px #000000;
-	box-shadow: -1px -1px 1px -1px rgb(31, 28, 28);
+	overflow: scroll;
+	/* box-shadow: 1px 1px 1px 1px #000000,
+	  -1px -1px 1px -1px rgb(31, 28, 28); */
 }
 
 #sidebar {
 	border: 1px solid red;
 	background: #9b9797;
 	padding: 3px;
+	max-height: 500px;
 	box-shadow: 1px 1px 1px 1px #000000,
 		-1px -1px 1px -1px rgb(31, 28, 28);
+	display: flex;
+	flex-direction: column;
+	min-height: min-content;
+	overflow: scroll;
+}
+
+#addCampground {
+	border-radius: 2px;
+	margin-top: 5px;
+	padding: 10px;
+	position: sticky;
+	bottom: 0px;
+	background: #e70b0b;
+	max-width: 100%;
+	text-align: center;
+	color: black;
+	box-shadow: 1px 1px 1px 1px #000000,
+	  -1px -1px 1px -1px #9b9797;
+}
+
+a {
+	color: black;
 }
 
 .campground-list-item {
-	border: 1px dashed green;
+	/* border: 1px dashed green; */
 	padding: 5px;
 	margin: 3px;
+	cursor: pointer;
 	background: white;
 	box-shadow: 1px 1px 1px -1px rgb(31, 28, 28),
 		-1px -1px 1px -1px rgb(31, 28, 28);
 }
 
+.campground-name {
+	cursor: pointer;
+}
+
 #campground-details {
 	border: 1px solid blue;
 	padding: 3px;
-	margin: 3px;
 	box-shadow: 1px 1px 1px 1px #000000,
 		-1px -1px 1px -1px rgb(31, 28, 28);
 }
@@ -72,6 +106,11 @@ header h1 {
 	margin: 0 10px 0 0;
 	padding: 0;
 	background: none;
+}
+
+.campground-list-header, h2 {
+	text-align: center;
+	margin: 7px;
 }
 
   /* FORMS */

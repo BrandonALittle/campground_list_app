@@ -1,59 +1,65 @@
 import React from 'react';
 import { Consumer } from './Context';
 
-const Modal = ({ history }) => {
+class Modal extends React.Component {
+	
+	input = React.createRef();
 
-	let back = e => {
-		e.stopPropagation();
-		history.goBack();
-	};
+	render() {
+		let history = this.props.history;
+		let back = e => {
+			e.stopPropagation();
+			history.goBack();
+		};
 
-	return (
-		<div
-			style={{
-				position: "absolute",
-				top: 0,
-				left: 0,
-				bottom: 0,
-				right: 0,
-				background: "rgba(0, 0, 0, 0.15)"
-			}}
-		>
+
+		return (
 			<div
-				className="modal"
 				style={{
 					position: "absolute",
-					background: "#fff",
-					top: 25,
-					left: "10%",
-					right: "10%",
-					padding: 15,
-					border: "2px solid #444"
+					top: 0,
+					left: 0,
+					bottom: 0,
+					right: 0,
+					background: "rgba(0, 0, 0, 0.15)"
 				}}
 			>
-				<Consumer>
-					{ ({ actions }) => (
-						<div>
-							<h1>Add a Campground</h1>
-							<form>
-								<input type="text" />
-								<button type="button" onClick={back}>
-									Close
-								</button>
-								<button type="submit" onClick={(e) => {
-									e.preventDefault();
-									actions.addCampground('Banana');
-									back(e)
-								}}>
-									Add Campground
-								</button>
-							</form>
-						</div>
-					)}
-				</Consumer>
+				<div
+					className="modal"
+					style={{
+						position: "absolute",
+						background: "#fff",
+						top: 25,
+						left: "10%",
+						right: "10%",
+						padding: 15,
+						border: "2px solid #444"
+					}}
+				>
+					<Consumer>
+						{ ({ actions }) => (
+							<div>
+								<h1>Add a Campground</h1>
+								<form>
+									<input type="text" name="campgroundName" ref={this.input}/>
+									<button type="button" onClick={back}>
+										Close
+									</button>
+									<button type="submit" onClick={(e) => {
+										e.preventDefault();
+										actions.addCampground(this.input.current.value);
+										back(e)
+									}}>
+										Add Campground
+									</button>
+								</form>
+							</div>
+						)}
+					</Consumer>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 export default Modal;

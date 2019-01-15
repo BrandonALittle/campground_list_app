@@ -29,7 +29,7 @@ class App extends React.Component {
 		);
 
 		return (
-				<div id="content">
+				<div id="main-content">
 					<Switch location={isModal ? this.previousLocation : location}>
 						<Route exact path="/" render={() => (
 							<React.Fragment>

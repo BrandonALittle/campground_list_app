@@ -16,7 +16,7 @@ class CampgroundListItem extends Component {
           { ({ actions, campgrounds }) => (
             <span className="campground-name">
               <button className="remove-campground" onClick={() => actions.removeCampground(campgrounds[index].id)}>x</button>
-              { campgrounds[index].name }
+              <span onClick={() => actions.handleCurrentCampground(index)}>{ campgrounds[index].name }</span>
             </span>
           )}
         </Consumer>
