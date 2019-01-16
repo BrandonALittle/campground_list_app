@@ -1,53 +1,51 @@
 /* ELEMENT STYLES -------------------- */
 body {
-    background: #ffffff; 
-    font-family: arial;
-		text-transform: uppercase;
-		height: 100vh;
-  }
+	background: #ffffff; 
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-transform: uppercase;
+	max-height: 100vh;
+	margin: 0;
+}
+
+h2, h3 {
+	text-align: center;
+	margin: 0px;
+}
   
 header {
-	height: 150px;
-	color: rgb(19, 16, 4);
-	padding: 5px 10px;
+	height: 75px;
+	color: #fff;
 	text-align: center;
 	display: flex;
 	align-items: center;
-	background-image: url('./img/IMG_20181209_171337.jpg');
-	/* background: rgb(167, 145, 51); */
-	background-size: cover;
+	background: #E8A10C;
+	background: linear-gradient(to bottom, #E8A10C, #ffd8177c);
 	box-shadow: 1px 1px 1px 1px #000000;
-	text-shadow: 1px 1px white;
+	text-shadow: 1px 1px #000;
 	font-size: 2em;
 }
 
 header h1 {
 	flex-grow: 1;
-	font-size: 1.5em;
+	font-size: 1.1em;
 	letter-spacing: 2px;
 	font-weight: normal;
+	box-sizing: border-box;
 }
 
 #main-content {
 	display: grid;
-	min-height: 600px;
-	max-height: 800px;
+	height: 90vh;
 	margin: auto;
-	grid-template-columns: minmax(480px, 1fr) 3fr;
-	grid-column-gap: 15px;
-	/* border: 1px dashed black; */
-	margin-top: 10px;
-	padding: 5px;
+	grid-template-columns: minmax(480px, 1fr) 2fr;
+	grid-column-gap: 0px;
 	overflow: scroll;
-	/* box-shadow: 1px 1px 1px 1px #000000,
-	  -1px -1px 1px -1px rgb(31, 28, 28); */
 }
 
 #sidebar {
-	border: 1px solid red;
-	background: #9b9797;
-	padding: 3px;
-	max-height: 500px;
+	background: #e4d9d9;
+	max-height: 100%;
+	/* border-bottom: 25px solid red; */
 	box-shadow: 1px 1px 1px 1px #000000,
 		-1px -1px 1px -1px rgb(31, 28, 28);
 	display: flex;
@@ -58,11 +56,11 @@ header h1 {
 
 #addCampground {
 	border-radius: 2px;
-	margin-top: 5px;
+	margin: 7px;
 	padding: 10px;
 	position: sticky;
-	bottom: 0px;
-	background: #e70b0b;
+	bottom: 5px;
+	background: #E83C0C;
 	max-width: 100%;
 	text-align: center;
 	color: black;
@@ -72,16 +70,33 @@ header h1 {
 
 a {
 	color: black;
+	text-decoration: none;
+}
+
+.campground-list-header {
+	position: sticky;
+	top: 0;
+	margin: 0px;
+	padding: 7px;
+	text-align: center;
+	background-color: white;
+	border-bottom: 2px solid #785312;
 }
 
 .campground-list-item {
-	/* border: 1px dashed green; */
-	padding: 5px;
-	margin: 3px;
+	border-radius: 2px;
+	padding: 10px;
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	cursor: pointer;
 	background: white;
-	box-shadow: 1px 1px 1px -1px rgb(31, 28, 28),
-		-1px -1px 1px -1px rgb(31, 28, 28);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.campground-list-item:hover {
+	background: #ffd8174b
 }
 
 .campground-name {
@@ -89,17 +104,24 @@ a {
 }
 
 #campground-details {
-	border: 1px solid blue;
-	padding: 3px;
-	box-shadow: 1px 1px 1px 1px #000000,
-		-1px -1px 1px -1px rgb(31, 28, 28);
+	padding: 8px;
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center;
 }
 
+#campground-details img {
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	max-height: 100%;
+	max-width: 100%;
+	margin: auto;
+}
 
 .remove-campground {
 	font-size: 1.15em;
+	border-radius: 50%;
 	outline: none;
-	background-color: #a01010;
 	border: none;
 	color: #a83d12;
 	cursor: pointer;
@@ -108,15 +130,16 @@ a {
 	background: none;
 }
 
-.campground-list-header, h2 {
-	text-align: center;
-	margin: 7px;
+#current-campground {
+	border: 2px solid #ffd817;
+	background: #ffd8174b;
+	transition: .5s;
 }
 
-  /* FORMS */
+  /* FORM */
 form {
 	display: flex;
-	background-color: rgb(12, 7, 31);
+	background-color: #E8A10C;
 }
   
 input[type=text] {
@@ -125,7 +148,7 @@ input[type=text] {
 	margin: 15px 10px 15px 15px;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: rgb(209, 205, 223);
+	background-color: #cecdd3;
 	border-style: none;
 	text-shadow: none;
 	text-transform: uppercase;
@@ -134,4 +157,18 @@ input[type=text] {
 	outline: none;
 }
 
-    
+@media (max-width: 600px) {
+	#sidebar {
+		display: none;
+	}
+	.modal {
+		width: 100% !important;
+		height: 100% !important;
+		margin: 0 !important;
+		position: absolute;
+	}
+	.modal-container {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}

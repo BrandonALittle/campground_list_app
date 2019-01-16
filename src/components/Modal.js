@@ -14,7 +14,7 @@ class Modal extends React.Component {
 
 
 		return (
-			<div
+			<div className="modal-container"
 				style={{
 					position: "absolute",
 					top: 0,
@@ -33,7 +33,7 @@ class Modal extends React.Component {
 						left: "10%",
 						right: "10%",
 						padding: 15,
-						border: "2px solid #444"
+						border: "2px solid #444",
 					}}
 				>
 					<Consumer>

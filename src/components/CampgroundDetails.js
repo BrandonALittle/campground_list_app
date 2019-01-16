@@ -1,20 +1,24 @@
 import React from 'react';
 import { Consumer } from './Context';
-import campgroundImg from '../img/campground_(2).jpg';
 
 const CampgroundDetails = () => {
+  let images = require.context('../img', false);
+
   return (
     <section id="campground-details">
       <Consumer>
         { ({ campgrounds, currentCampgroundIndex }) => {
-          {/* currentCampgroundIndex = currentCampgroundIndex || 0; */}
-          let currentCampground = campgrounds[currentCampgroundIndex] 
-            ? campgrounds[currentCampgroundIndex].name 
+          let currentCampground = campgrounds[currentCampgroundIndex] || campgrounds[0];
+          let name = currentCampground 
+            ? currentCampground.name 
             : 'Select a campground';
+          let imageFileName = currentCampground && currentCampground.image ? currentCampground.image : "default.jpg";
+          let image = images(`./${imageFileName}`);
+
           return (
             <React.Fragment>
-            <h2>{ currentCampground }</h2>
-            <img src={campgroundImg}/>
+              <h2>{ name }</h2>
+              <img src={image}/>
             </React.Fragment>
           )
         }}

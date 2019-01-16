@@ -8,19 +8,24 @@ class CampgroundListItem extends Component {
   };
 
   render() {
-    const { index } = this.props;
+    const { index, currentCampgroundIndex } = this.props;
 
     return (
-      <div className="campground-list-item">
         <Consumer>
           { ({ actions, campgrounds }) => (
-            <span className="campground-name">
-              <button className="remove-campground" onClick={() => actions.removeCampground(campgrounds[index].id)}>x</button>
-              <span onClick={() => actions.handleCurrentCampground(index)}>{ campgrounds[index].name }</span>
-            </span>
+            <div className="campground-list-item" 
+                  id={index === currentCampgroundIndex ? 'current-campground' : null} 
+                  onClick={() => actions.handleCurrentCampground(index)}
+            >
+              <span className="campground-name" >
+                <button className="remove-campground" 
+                        onClick={() => actions.removeCampground(campgrounds[index].id)}
+                >x</button>
+                <span>{ campgrounds[index].name }</span>
+              </span>
+            </div>
           )}
         </Consumer>
-      </div>
     );
   }
 }

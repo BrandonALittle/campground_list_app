@@ -9,26 +9,52 @@ export class Provider extends Component {
         {
           name: "Matarredonda",
           id: 1,
+          image: "matarredonda.jpg"
         },
         {
-          name: "Salento",
+          name: "Valle del Cocora",
           id: 2,
+          image: "salento.jpg"
         },
         {
-          name: "Gairaca",
-          id: 3
+          name: "La Guajira",
+          id: 3,
+          image: "guajira.jpg"
         },
         {
           name: "Balneario de Villa Concha",
-          id: 4
+          id: 4,
+          image: "balneario.jpg"
         },
         {
-          name: "Parque de Los Angeles",
-          id: 5
+          name: "Las Gachas de Guadalupe",
+          id: 5,
+          image: "lasGachas.jpg"
         },
         {
-          name: "El Heronsito de los Heronsitos",
-          id: 6
+          name: "Cerros de Mavecure",
+          id: 6,
+          image: "mavecure.jpg"
+        },
+        {
+          name: "Caño Cristales",
+          id: 7,
+          image: "canoCristales.jpg"
+        },
+        {
+          name: "Tayrona Parque Nacional",
+          id: 8,
+          image: "tayrona.jpg"
+        },
+        {
+          name: "Tatacoa Desert",
+          id: 9,
+          image: "tatacoa.jpg"
+        },
+        {
+          name: "Los Estoraques",
+          id: 10,
+          image: "losEstoraques.jpg"
         }
       ],
       currentCampgroundIndex: null,
@@ -39,23 +65,30 @@ export class Provider extends Component {
     }
 
     handleAddCampground = (name) => {
-      this.setState( prevState => {
-        return {
-          campgrounds: [
-            ...prevState.campgrounds,
-            {
-              name,
-              id: prevState.campgrounds.length + 1,
-            }
-          ]
-        }
-      });
+      let isInList = this.state.campgrounds.reduce((isInList, campground) => {
+        return campground.name == name;
+      }, false);
+
+      if (!isInList) {
+        this.setState( prevState => {
+          return {
+            campgrounds: [
+              ...prevState.campgrounds,
+              {
+                name,
+                id: prevState.campgrounds.length + 1,
+              }
+            ],
+            currentCampgroundIndex: prevState.campgrounds.length,
+          }
+        });
+      }
     }
 
     handleRemoveCampground = (id) => {
       this.setState( prevState => {
         return {
-          campgrounds: prevState.campgrounds.filter(cg => cg.id !== id)
+          campgrounds: prevState.campgrounds.filter(campground => campground.id !== id)
         }
       });
     }

@@ -6,7 +6,6 @@ import { Provider } from './components/Context';
 import App from './components/App';
 import './index.css';
 
-const title = "List O' Campgrounds";
 
 ReactDOM.render(
   <Router>

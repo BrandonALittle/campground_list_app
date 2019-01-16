@@ -6,14 +6,17 @@ import CampgroundListItem from './CampgroundListItem';
 const CampgroundList = () => {
   return (
     <section id="sidebar">
-      <h3 className="campground-list-header">Campgrounds</h3>
+      <div className="campground-list-header">
+        <h3>Campgrounds</h3>
+      </div>
       <Consumer>
-        { ({ campgrounds }) => (
+        { ({ campgrounds, currentCampgroundIndex }) => (
           <div>
             { campgrounds.map ( (campground, index ) => 
               <CampgroundListItem 
                 key={campground.id.toString()}
                 index={index}
+                currentCampgroundIndex={currentCampgroundIndex}
               />
             )}
           </div>
