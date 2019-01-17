@@ -4,7 +4,7 @@ const CampgroundContext = React.createContext();
 
 export class Provider extends Component {
 
-    state = JSON.parse(localStorage.getItem('campgroundState')) || {
+    state = JSON.parse(localStorage.getItem('campgroundState')) || { // check local storage first and load state
       campgrounds: [
         {
           name: "Matarredonda",
@@ -61,15 +61,15 @@ export class Provider extends Component {
     };
 
     componentDidUpdate() {
-      localStorage.setItem('campgroundState', JSON.stringify(this.state));
+      localStorage.setItem('campgroundState', JSON.stringify(this.state)); // update local storage
     }
 
     handleAddCampground = (name) => {
-      let isInList = this.state.campgrounds.reduce((isInList, campground) => {
+      let isInList = this.state.campgrounds.reduce((isInList, campground) => { // check for name in list
         return campground.name == name;
       }, false);
 
-      if (!isInList) {
+      if (!isInList) { 
         this.setState( prevState => {
           return {
             campgrounds: [
@@ -79,7 +79,7 @@ export class Provider extends Component {
                 id: prevState.campgrounds.length + 1,
               }
             ],
-            currentCampgroundIndex: prevState.campgrounds.length,
+            currentCampgroundIndex: prevState.campgrounds.length, // set current campground to the new campground
           }
         });
       }

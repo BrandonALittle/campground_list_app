@@ -33,24 +33,27 @@ header h1 {
 	box-sizing: border-box;
 }
 
+a {
+	color: black;
+	text-decoration: none;
+}
+
 #main-content {
 	display: grid;
 	height: 90vh;
 	margin: auto;
 	grid-template-columns: minmax(480px, 1fr) 2fr;
 	grid-column-gap: 0px;
-	overflow: scroll;
 }
 
 #sidebar {
 	background: #e4d9d9;
 	max-height: 100%;
-	/* border-bottom: 25px solid red; */
+	min-height: min-content;
 	box-shadow: 1px 1px 1px 1px #000000,
 		-1px -1px 1px -1px rgb(31, 28, 28);
 	display: flex;
 	flex-direction: column;
-	min-height: min-content;
 	overflow: scroll;
 }
 
@@ -66,11 +69,6 @@ header h1 {
 	color: black;
 	box-shadow: 1px 1px 1px 1px #000000,
 	  -1px -1px 1px -1px #9b9797;
-}
-
-a {
-	color: black;
-	text-decoration: none;
 }
 
 .campground-list-header {
@@ -136,10 +134,43 @@ a {
 	transition: .5s;
 }
 
+#modal-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.15);
+}
+
+#modal {
+	position: absolute;
+	background: #fff;
+	top: 25px;
+	left: 10%;
+	right: 10%;
+	padding: 15px;
+	border: 2px solid #444;
+}
+
   /* FORM */
 form {
 	display: flex;
 	background-color: #E8A10C;
+	border-radius: 2px;
+}
+
+form button {
+	background-color: #b87818f3;
+	color: #fff;
+	font-weight: bold;
+	margin-right: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
   
 input[type=text] {
@@ -148,7 +179,7 @@ input[type=text] {
 	margin: 15px 10px 15px 15px;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: #cecdd3;
+	background-color: #fff;
 	border-style: none;
 	text-shadow: none;
 	text-transform: uppercase;
@@ -158,17 +189,25 @@ input[type=text] {
 }
 
 @media (max-width: 600px) {
+
 	#sidebar {
 		display: none;
 	}
-	.modal {
-		width: 100% !important;
-		height: 100% !important;
-		margin: 0 !important;
+
+	#modal {
+		height: 100%;
 		position: absolute;
+		margin: 0;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		
 	}
-	.modal-container {
-		margin: 0 !important;
-		padding: 0 !important;
+
+	#modal-container {
+		margin: auto;
+		padding: 0;
+		text-align: center;
 	}
 }

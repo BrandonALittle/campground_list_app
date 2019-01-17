@@ -4,7 +4,8 @@ import { Consumer } from './Context';
 
 class CampgroundListItem extends Component {
   static propTypes = {
-    index: PropTypes.number.isRequired
+    index: PropTypes.number.isRequired,
+    currentCampgroundIndex: PropTypes.number.isRequired
   };
 
   render() {

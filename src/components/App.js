@@ -8,7 +8,7 @@ import Modal from './Modal';
 class App extends React.Component {
 	previousLocation = this.props.location;
 
-	componentWillUpdate(nextProps) {
+	componentWillUpdate(nextProps) { // 
 		let { location } = this.props;
 
 		if (
@@ -38,7 +38,7 @@ class App extends React.Component {
 							</React.Fragment>
 						)} />
 					</Switch>
-					{isModal ? <Route path="/add" component={Modal} /> : null}
+					{isModal ? <Route path="/add" component={Modal} /> : null} {/* render modal if targeted */}
 				</div>
 		);
 	}

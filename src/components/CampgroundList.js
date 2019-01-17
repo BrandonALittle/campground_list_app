@@ -25,8 +25,8 @@ const CampgroundList = () => {
       <div id="addCampground">
         <Link to={{
           pathname: "/add",
-          state: { modal: true }}}
-          >ADD CAMPGROUND</Link>
+          state: { modal: true }}} // pass state to route and show modal
+          >+ ADD CAMPGROUND</Link>
       </div>
     </section>
   );
